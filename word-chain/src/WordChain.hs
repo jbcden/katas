@@ -6,8 +6,9 @@ import System.Environment
 
 dictionary = "/usr/share/dict/words"
 
-shortestPath :: String -> String -> [String]
-shortestPath start end | start == end = [start]
+shortestPath :: String -> String -> Either String [String]
+shortestPath start end | start == end = Right [start]
+                       | length start /= length end = Left "length mismatch"
                        | otherwise = error "Not implemented"
 
 readDictionary :: IO String
