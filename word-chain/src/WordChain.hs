@@ -7,7 +7,8 @@ import System.Environment
 dictionary = "/usr/share/dict/words"
 
 shortestPath :: String -> String -> [String]
-shortestPath _ _ = ["test"]
+shortestPath start end | start == end = [start]
+                       | otherwise = error "Not implemented"
 
 readDictionary :: IO String
 readDictionary = readFile dictionary
