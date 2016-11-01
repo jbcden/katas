@@ -1,5 +1,6 @@
 module WordChain
-    ( shortestPath,
+    ( shortestPath
+    , isNeighbor
     ) where
 
 import System.Environment
@@ -16,3 +17,6 @@ readDictionary = readFile dictionary
 
 allTheWords :: IO [String]
 allTheWords = fmap lines readDictionary
+
+-- isNeighbor :: String -> String -> Bool
+isNeighbor a b = foldl (\acc (a, b) -> if a /= b then acc + 1 else acc) 0 $ zip a b
