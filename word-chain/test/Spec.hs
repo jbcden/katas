@@ -4,7 +4,7 @@ import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 import WordChain
 
 main :: IO ()
-main = hspecWith defaultConfig {configFastFail = True} specs
+main = hspecWith defaultConfig specs
 
 specs :: Spec
 specs = describe "word chain" $ do
@@ -23,6 +23,14 @@ specs = describe "word chain" $ do
                 shortestPath "bat" "mat" `shouldBe` Right ["bat", "mat"]
 
           context "isNeighbor" $ do
-            describe "given a word and a dictionary" $ do
+            describe "given two words" $ do
               it "is true when words have one letter difference" $
                 isNeighbor "bat" "mat" `shouldBe` True
+
+          context "neighbors" $ do
+            describe "given a dictionary and a word" $ do
+              it "returns an empty list when there are no neighbors in the dictionary" $
+                neighbors ["matt"] "mat" `shouldBe` []
+
+              it "returns a list with all neighbors" $
+                neighbors ["bat", "cat", "boat", "hot"] "bot" `shouldBe` ["bat", "hot"]
