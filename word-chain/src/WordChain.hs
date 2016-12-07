@@ -8,7 +8,20 @@ import System.Environment
 
 data WordTree word = Node word [WordTree word] deriving (Show)
 
+type WordPath = [String]
+
+advance :: [String] -> [WordPath] -> [WordPath]
+advance words [] = []
+advance words paths = let iteration = concat 
+                                    $ map (generateChildPaths) paths
+                          generateChildPaths as = map (:as) 
+                                                $ filter (`notElem` as)
+                                                $ neighbors words (head as)
+                      in iteration ++ (advance words iteration)
+
 dictionary = "/usr/share/dict/words"
+
+search start term words = take 1 $ filter ((== term) . head) $advance words [[start]]
 
 shortestPath :: String -> String -> Either String [String]
 shortestPath start end | start == end = Right [start]
@@ -19,7 +32,7 @@ readDictionary :: IO String
 readDictionary = readFile dictionary
 
 allTheWords :: IO [String]
-allTheWords = fmap lines readDictionary
+allTheWords = fmap (lines) readDictionary
 
 isNeighbor :: String -> String -> Bool
 isNeighbor a b = distance == 1
