@@ -1,0 +1,305 @@
+
+==================== FINAL INTERFACE ====================
+2016-11-15 18:52:00.815688 UTC
+
+interface word-chain-0.1.0.0-AKHjdcGDePvFQyrr70bdDi:WordChain 8001
+  interface hash: 4caff6cd0bd94e34a80cb07832246f36
+  ABI hash: 35ed563f5860c57e614f74eede3dc434
+  export-list hash: dfaaa5a257930a218f72ade2e57e122c
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: a4046e0fdab24403354cf30558c1ea1c
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  WordChain.allTheWords
+  WordChain.buildTree
+  WordChain.isNeighbor
+  WordChain.neighbors
+  WordChain.shortestPath
+module dependencies:
+package dependencies: base-4.9.0.0* ghc-prim-0.5.0.0
+                      integer-gmp-1.0.0.1
+orphans: base-4.9.0.0:GHC.Base base-4.9.0.0:GHC.Float
+family instance modules: base-4.9.0.0:Control.Applicative
+                         base-4.9.0.0:Data.Either base-4.9.0.0:Data.Functor.Const
+                         base-4.9.0.0:Data.Monoid base-4.9.0.0:Data.Type.Equality
+                         base-4.9.0.0:GHC.Generics base-4.9.0.0:GHC.IO.Exception
+                         base-4.9.0.0:GHC.TypeLits
+import  -/  base-4.9.0.0:Data.Either bd9f099b82d4ed2d98c56d7144ac6957
+import  -/  base-4.9.0.0:Data.Foldable 8aeb682f6c74f97fcf0ace0d608a43ea
+import  -/  base-4.9.0.0:Data.OldList 0058409f994fb13ae0616e3f1e5b4dae
+import  -/  base-4.9.0.0:GHC.Base 8ed3be81c0707b322f975a84ae1bb816
+import  -/  base-4.9.0.0:GHC.List 13d2451194c1c6e53b4f4f07947736dd
+import  -/  base-4.9.0.0:GHC.Num 48f506a8f4ecf06285d0a0706594dcc0
+import  -/  base-4.9.0.0:GHC.Show 952347a6ab730bcb25c0854d8bc6ca51
+import  -/  base-4.9.0.0:Prelude b9bddb97799837fe67a8d00939a5b6c3
+import  -/  base-4.9.0.0:System.Environment ee0914a962f5508d0fd404c89ee4999b
+import  -/  base-4.9.0.0:System.IO ad985d7a3fc986e9b9c610fb344d9106
+import  -/  ghc-prim-0.5.0.0:GHC.Classes 0bdf3d057a415ec1b84a7b1994efbe47
+import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
+4819b2471c4b9cd9bb224b5467b0f137
+  $fShowWordTree ::
+    GHC.Show.Show word => GHC.Show.Show (WordChain.WordTree word)
+  DFunId
+  {- Arity: 1, Strictness: <L,U(C(C1(U)),A,A)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ word ($dShow :: GHC.Show.Show word).
+                  @ (WordChain.WordTree word)
+                  (WordChain.$fShowWordTree_$cshowsPrec @ word $dShow)
+                  (WordChain.$fShowWordTree_$cshow @ word $dShow)
+                  (WordChain.$fShowWordTree_$cshowList @ word $dShow) -}
+71f1d129bc40b50d163ae618f4ef3cf5
+  $fShowWordTree1 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 0#) -}
+4819b2471c4b9cd9bb224b5467b0f137
+  $fShowWordTree_$cshow ::
+    GHC.Show.Show word => WordChain.WordTree word -> GHC.Base.String
+  {- Arity: 2, Strictness: <L,U(C(C1(U)),A,A)><S,1*U(U,U)>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ word
+                   ($dShow :: GHC.Show.Show word)
+                   (x :: WordChain.WordTree word) ->
+                 WordChain.$fShowWordTree_$cshowsPrec
+                   @ word
+                   $dShow
+                   GHC.Show.shows22
+                   x
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+4819b2471c4b9cd9bb224b5467b0f137
+  $fShowWordTree_$cshowList ::
+    GHC.Show.Show word => [WordChain.WordTree word] -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,U(C(C1(U)),A,A)><S,1*U><L,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ word
+                   ($dShow :: GHC.Show.Show word)
+                   (eta :: [WordChain.WordTree word])
+                   (eta1 :: GHC.Base.String) ->
+                 GHC.Show.showList__
+                   @ (WordChain.WordTree word)
+                   (WordChain.$fShowWordTree_$cshowsPrec
+                      @ word
+                      $dShow
+                      WordChain.$fShowWordTree1)
+                   eta
+                   eta1) -}
+4819b2471c4b9cd9bb224b5467b0f137
+  $fShowWordTree_$cshowsPrec ::
+    GHC.Show.Show word =>
+    GHC.Types.Int -> WordChain.WordTree word -> GHC.Show.ShowS
+  {- Arity: 3,
+     Strictness: <L,U(C(C1(U)),A,A)><S(S),1*U(U)><S,1*U(U,U)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ @ word
+                   (w :: GHC.Show.Show word)
+                   (w1 :: GHC.Types.Int)
+                   (w2 :: WordChain.WordTree word) ->
+                 case w1 of ww { GHC.Types.I# ww1 ->
+                 case w2 of ww2 { WordChain.Node ww3 ww4 ->
+                 WordChain.$w$cshowsPrec @ word w ww1 ww3 ww4 } }) -}
+cd49c7cea55ecd73a718f0bccf2cf385
+  $tc'Node :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   5651780734012126405##
+                   3501174608125996139##
+                   WordChain.$trModule
+                   WordChain.$tc'Node1) -}
+2cd14893830bae32169f23281df01f2f
+  $tc'Node1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Node"#) -}
+be31f19127d4e3093f8684392146358b
+  $tcWordTree :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   8243262556201794890##
+                   7955915445749094627##
+                   WordChain.$trModule
+                   WordChain.$tcWordTree1) -}
+72252f3e0fae173c37f814daf7023209
+  $tcWordTree1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "WordTree"#) -}
+a3b0754a6362da7d4ffc43267fd06a16
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   WordChain.$trModule2
+                   WordChain.$trModule1) -}
+a726a6b55c934b32fcd1f6892d6d3a4a
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "WordChain"#) -}
+b5d26719fcb45a470812945eb22368ec
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS
+                   "word-chain-0.1.0.0-AKHjdcGDePvFQyrr70bdDi"#) -}
+4819b2471c4b9cd9bb224b5467b0f137
+  $w$cshowsPrec ::
+    GHC.Show.Show word =>
+    GHC.Prim.Int#
+    -> word -> [WordChain.WordTree word] -> GHC.Show.ShowS
+  {- Arity: 4, Strictness: <L,U(C(C1(U)),A,A)><S,U><L,U><L,U>,
+     Inline: [0] -}
+c097bf52bb25d142b7b7b472a771b34b
+  $wbuildTree ::
+    [GHC.Base.String]
+    -> GHC.Base.String
+    -> (# GHC.Base.String, [WordChain.WordTree GHC.Base.String] #)
+  {- Arity: 2, Strictness: <L,U><L,U>, Inline: [0] -}
+4819b2471c4b9cd9bb224b5467b0f137
+  data WordTree word = Node word [WordChain.WordTree word]
+    RecFlag: Recursive
+e95fffeac12a970fb01bd5ea9a09e742
+  allTheWords :: GHC.Types.IO [GHC.Base.String]
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (0, True, True)
+                WordChain.allTheWords1
+                  `cast`
+                (Sym (GHC.Types.N:IO[0] <[GHC.Base.String]>_R)) -}
+55d4357110e19039a4d8f120041e2051
+  allTheWords1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, [GHC.Base.String] #)
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (eta :: GHC.Prim.State#
+                             GHC.Prim.RealWorld)[OneShot] ->
+                 case GHC.IO.Handle.FD.openFile1
+                        WordChain.allTheWords2
+                        GHC.IO.IOMode.ReadMode
+                        eta of ds1 { (#,#) ipv ipv1 ->
+                 case GHC.IO.Handle.Text.hGetContents1
+                        ipv1
+                        ipv of ds { (#,#) ipv2 ipv3 ->
+                 (# ipv2, Data.OldList.lines ipv3 #) } }) -}
+64fa576b94dc6b99ae4bed3e4ce0cc54
+  allTheWords2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   "/usr/share/dict/words"#) -}
+b38c5135812d15a4d5ffe8ad0d70a5eb
+  buildTree ::
+    [GHC.Base.String]
+    -> GHC.Base.String -> WordChain.WordTree GHC.Base.String
+  {- Arity: 2, Strictness: <L,U><L,U>m, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: [GHC.Base.String]) (w1 :: GHC.Base.String) ->
+                 case WordChain.$wbuildTree w w1 of ww { (#,#) ww1 ww2 ->
+                 WordChain.Node @ GHC.Base.String ww1 ww2 }) -}
+87202fbca938d4cee0c009bbdefbdd4f
+  isNeighbor :: GHC.Base.String -> GHC.Base.String -> GHC.Types.Bool
+  {- Arity: 2, Strictness: <S,1*U><L,1*U>,
+     Unfolding: (\ (a :: GHC.Base.String) (b :: GHC.Base.String) ->
+                 case GHC.Integer.Type.eqInteger#
+                        (WordChain.isNeighbor_go a b WordChain.isNeighbor2)
+                        WordChain.isNeighbor1 of wild { DEFAULT ->
+                 GHC.Prim.tagToEnum# @ GHC.Types.Bool wild }) -}
+9ae8d38950855d7d730feb2865a0a851
+  isNeighbor1 :: GHC.Integer.Type.Integer
+  {- HasNoCafRefs, Unfolding: (1) -}
+d4f8fdd35e6099a49be332e253194fc8
+  isNeighbor2 :: GHC.Integer.Type.Integer
+  {- HasNoCafRefs, Unfolding: (0) -}
+56db96b0934d01467acc9fdef547af7c
+  isNeighbor_go ::
+    [GHC.Types.Char]
+    -> [GHC.Types.Char]
+    -> GHC.Integer.Type.Integer
+    -> GHC.Integer.Type.Integer
+  {- Arity: 3, Strictness: <S,1*U><L,1*U><S,1*U> -}
+136fc51f682d3df79ebbed6d5c433128
+  neighbors ::
+    [GHC.Base.String] -> GHC.Base.String -> [GHC.Base.String]
+  {- Arity: 2, Strictness: <S,1*U><L,U>,
+     Unfolding: (\ (dict :: [GHC.Base.String])
+                   (word :: GHC.Base.String) ->
+                 let {
+                   f :: GHC.Types.Int
+                   = case GHC.List.$wlenAcc
+                            @ GHC.Types.Char
+                            word
+                            0# of ww2 { DEFAULT ->
+                     GHC.Types.I# ww2 }
+                 } in
+                 GHC.List.filter
+                   @ [GHC.Types.Char]
+                   (\ (x :: [GHC.Types.Char]) ->
+                    case f of wild { GHC.Types.I# x1 ->
+                    case GHC.List.$wlenAcc @ GHC.Types.Char x 0# of ww2 { DEFAULT ->
+                    case GHC.Prim.tagToEnum#
+                           @ GHC.Types.Bool
+                           (GHC.Prim.==# x1 ww2) of wild1 {
+                      GHC.Types.False -> GHC.Types.False
+                      GHC.Types.True -> WordChain.isNeighbor word x } } })
+                   dict) -}
+924de5c0844d00501e6b362f83074a42
+  shortestPath ::
+    WordChain.WordTree GHC.Base.String
+    -> GHC.Base.String
+    -> GHC.Base.String
+    -> Data.Either.Either GHC.Base.String [GHC.Base.String]
+  {- Arity: 3, Strictness: <L,1*U(A,1*U)><S,U><S,U>,
+     Unfolding: (\ (words :: WordChain.WordTree GHC.Base.String)
+                   (start :: GHC.Base.String)
+                   (end :: GHC.Base.String) ->
+                 case GHC.Base.eqString start end of wild {
+                   GHC.Types.False
+                   -> case GHC.List.$wlenAcc
+                             @ GHC.Types.Char
+                             start
+                             0# of ww2 { DEFAULT ->
+                      case GHC.List.$wlenAcc @ GHC.Types.Char end 0# of ww1 { DEFAULT ->
+                      case GHC.Prim.tagToEnum#
+                             @ GHC.Types.Bool
+                             (GHC.Prim./=# ww2 ww1) of wild1 {
+                        GHC.Types.False
+                        -> case words of wild2 { WordChain.Node word nodes ->
+                           Data.Either.Right
+                             @ GHC.Base.String
+                             @ [GHC.Base.String]
+                             (letrec {
+                                go :: [WordChain.WordTree GHC.Base.String] -> [[GHC.Types.Char]]
+                                  {- Arity: 1, Strictness: <S,1*U> -}
+                                = \ (ds :: [WordChain.WordTree GHC.Base.String]) ->
+                                  case ds of wild3 {
+                                    [] -> GHC.Types.[] @ [GHC.Types.Char]
+                                    : y ys
+                                    -> case y of wild4 { WordChain.Node a ds1 ->
+                                       case GHC.Base.eqString a end of wild5 {
+                                         GHC.Types.False -> go ys
+                                         GHC.Types.True
+                                         -> GHC.Types.: @ [GHC.Types.Char] a (go ys) } } }
+                              } in
+                              go nodes) }
+                        GHC.Types.True -> WordChain.shortestPath1 } } }
+                   GHC.Types.True
+                   -> Data.Either.Right
+                        @ GHC.Base.String
+                        @ [GHC.Base.String]
+                        (GHC.Types.:
+                           @ GHC.Base.String
+                           start
+                           (GHC.Types.[] @ GHC.Base.String)) }) -}
+d93bda8353cfc293a9e9a75ef4595ef1
+  shortestPath1 ::
+    Data.Either.Either [GHC.Types.Char] [GHC.Base.String]
+  {- Strictness: m1,
+     Unfolding: (Data.Either.Left
+                   @ [GHC.Types.Char]
+                   @ [GHC.Base.String]
+                   WordChain.shortestPath2) -}
+59ada44d558713660b63beda8258e590
+  shortestPath2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "length mismatch"#) -}
+instance [safe] GHC.Show.Show [WordChain.WordTree]
+  = WordChain.$fShowWordTree
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+
