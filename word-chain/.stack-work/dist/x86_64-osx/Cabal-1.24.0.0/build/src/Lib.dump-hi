@@ -1,0 +1,90 @@
+
+==================== FINAL INTERFACE ====================
+2016-10-25 16:56:28.875096 UTC
+
+interface word-chain-0.1.0.0-AKHjdcGDePvFQyrr70bdDi:Lib 8001
+  interface hash: 4cbf33342918bb6bb8b776132f658166
+  ABI hash: cc6fb1bd5823e400a66195962c51875a
+  export-list hash: aa2d85800b328347ffce472243724abc
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: a4046e0fdab24403354cf30558c1ea1c
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Lib.allTheWords
+  Lib.readDictionary
+module dependencies:
+package dependencies: base-4.9.0.0* ghc-prim-0.5.0.0
+                      integer-gmp-1.0.0.1
+orphans: base-4.9.0.0:GHC.Base base-4.9.0.0:GHC.Float
+family instance modules: base-4.9.0.0:Control.Applicative
+                         base-4.9.0.0:Data.Either base-4.9.0.0:Data.Functor.Const
+                         base-4.9.0.0:Data.Monoid base-4.9.0.0:Data.Type.Equality
+                         base-4.9.0.0:GHC.Generics base-4.9.0.0:GHC.IO.Exception
+                         base-4.9.0.0:GHC.TypeLits
+import  -/  base-4.9.0.0:Data.OldList 0058409f994fb13ae0616e3f1e5b4dae
+import  -/  base-4.9.0.0:GHC.Base 8ed3be81c0707b322f975a84ae1bb816
+import  -/  base-4.9.0.0:Prelude b9bddb97799837fe67a8d00939a5b6c3
+import  -/  base-4.9.0.0:System.Environment ee0914a962f5508d0fd404c89ee4999b
+import  -/  base-4.9.0.0:System.IO ad985d7a3fc986e9b9c610fb344d9106
+import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
+6424f5de40d8416105c5008bb8a1d572
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module Lib.$trModule2 Lib.$trModule1) -}
+2923201ca2bf3755a83af198f1efaac6
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Lib"#) -}
+dbf3ba0081cdd88ba770892816644eed
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS
+                   "word-chain-0.1.0.0-AKHjdcGDePvFQyrr70bdDi"#) -}
+32ac82a52871e9707526af46a37a0ba9
+  allTheWords :: GHC.Types.IO [GHC.Base.String]
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Lib.allTheWords1
+                  `cast`
+                (Sym (GHC.Types.N:IO[0] <[GHC.Base.String]>_R)) -}
+562cdf4821f68ded2f4437a5f45cdac2
+  allTheWords1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, [GHC.Base.String] #)
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (eta :: GHC.Prim.State#
+                             GHC.Prim.RealWorld)[OneShot] ->
+                 case GHC.IO.Handle.FD.openFile1
+                        Lib.dictionary
+                        GHC.IO.IOMode.ReadMode
+                        eta of ds1 { (#,#) ipv ipv1 ->
+                 case GHC.IO.Handle.Text.hGetContents1
+                        ipv1
+                        ipv of ds { (#,#) ipv2 ipv3 ->
+                 (# ipv2, Data.OldList.lines ipv3 #) } }) -}
+f62287c5d84c85881749fdbc6f9e3fa0
+  dictionary :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   "/usr/share/dict/words"#) -}
+969df607be45e5cd5dd696f8c253f3ac
+  readDictionary :: GHC.Types.IO GHC.Base.String
+  {- Arity: 1,
+     Unfolding: InlineRule (0, True, True)
+                Lib.readDictionary1
+                  `cast`
+                (Sym (GHC.Types.N:IO[0] <GHC.Base.String>_R)) -}
+2d0f4a129148f312abe6381107082a0f
+  readDictionary1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GHC.Base.String #)
+  {- Arity: 1, Unfolding: (System.IO.readFile1 Lib.dictionary) -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+
